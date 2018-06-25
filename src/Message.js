@@ -19,7 +19,7 @@ class Message extends React.Component {
     }
 
     newValue() {
-	const query = new URLSearchParams(location.search)
+	const query = new URLSearchParams(window.location.search)
 	const kwparam = query.get('keyword')
 	
 	
