@@ -19,8 +19,8 @@ class Message extends React.Component {
     }
 
     newValue() {
-	
-	var kwparam = getParameterByName('keyword');
+	var query = new URLSearchParams(location.search)
+	var kwparam = query.get('keyword')
 	
 	
         fetch('https://bt-showcase-api.herokuapp.com/api/v1/messages?keyword='+kwparam)
@@ -30,7 +30,8 @@ class Message extends React.Component {
             curTime : new Date().toLocaleString()
           })
     }
-    
+	
+
 
     render() {
         return (
