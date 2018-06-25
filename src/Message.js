@@ -19,8 +19,8 @@ class Message extends React.Component {
     }
 
     newValue() {
-	var query = new URLSearchParams(location.search)
-	var kwparam = query.get('keyword')
+	const query = new URLSearchParams(location.search)
+	const kwparam = query.get('keyword')
 	
 	
         fetch('https://bt-showcase-api.herokuapp.com/api/v1/messages?keyword='+kwparam)
