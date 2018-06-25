@@ -5,7 +5,7 @@ class Message extends React.Component {
     
     constructor(){
         super();
-        this.state = newValue();
+        this.state = newValue()
         };
     }
 
