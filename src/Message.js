@@ -57,13 +57,10 @@ class Message extends React.Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.messages.map((message, index) => (
-                                <tr eventKey={index}>
-                                    <td >{message.channel}</td>
-                                    <td>{message.autor}</td>
-                                    <td>{message.content}</td>
-                                </tr>
-                            ))}
+						
+						
+							
+							
                         </tbody>
                     </Table>
                 </Col>
