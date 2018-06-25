@@ -5,10 +5,7 @@ class Message extends React.Component {
     
     constructor(){
         super();
-        this.state = {
-            messages: [],
-			messagecount: 0,
-            curTime : new Date().toLocaleString(),
+        this.state = newValue();
         };
     }
 
@@ -33,7 +30,7 @@ class Message extends React.Component {
         <div>
             <Row className='justify-content-md-center'>
                 <Col xs="9">
-                    <img src="/img/IMI_Brandmark_CMYK.png" class="img-fluid" alt="Responsive image"/>
+                    <img src="/img/rm.png" class="img-fluid" alt="Responsive image"/>
                 </Col>
             </Row>            
             <Row className="justify-content-md-center">
@@ -52,6 +49,7 @@ class Message extends React.Component {
                     <Table striped bordered>
                         <thead>
                             <tr>
+                                <th scope="col">Created</th>
                                 <th scope="col">Channel</th>
                                 <th scope="col">Author</th>
                                 <th scope="col">Message</th>
@@ -61,6 +59,7 @@ class Message extends React.Component {
 						
                             {this.state.messages.map((message, index) => (
                                 <tr eventKey={index}>
+									<td>{message.created_at}</td>
                                     <td>{message.channel}</td>
                                     <td>{message.created_by}</td>
                                     <td>{message.content}</td>
