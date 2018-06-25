@@ -5,14 +5,17 @@ class Message extends React.Component {
     
     constructor(){
         super();
-        this.state = this.newValue()
+        this.state = {
+            messages: [],
+			messagecount: 0,
+            curTime : new Date().toLocaleString(),
         };
     }
 
     componentDidMount() {
         setInterval( () => {
           this.newValue()
-        },10000)
+        },3000)
     }
 
     newValue() {
