@@ -7,6 +7,7 @@ class Message extends React.Component {
         super();
         this.state = {
             messages: [],
+			messagecount: 0,
             curTime : new Date().toLocaleString(),
         };
     }
@@ -19,8 +20,8 @@ class Message extends React.Component {
 
     newValue() {
         fetch('https://bt-showcase-api.herokuapp.com/api/v1/messages?keyword=CCC')
-            .then(response => response.json())
-            .then(responseJson => this.setState({ messages: responseJson }));
+            .then(response => response.json())			
+            .then(responseJson => this.setState({ messages: responseJson.messages, messagecount:responseJson.count }));
         this.setState({
             curTime : new Date().toLocaleString()
           })
