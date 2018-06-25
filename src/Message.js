@@ -18,7 +18,7 @@ class Message extends React.Component {
     }
 
     newValue() {
-        fetch('https://bt-showcase-api.herokuapp.com/messages?limit=50')
+        fetch('https://bt-showcase-api.herokuapp.com/api/v1/messages?keyword=CCC')
             .then(response => response.json())
             .then(responseJson => this.setState({ messages: responseJson }));
         this.setState({
