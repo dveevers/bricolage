@@ -19,7 +19,11 @@ class Message extends React.Component {
     }
 
     newValue() {
-        fetch('https://bt-showcase-api.herokuapp.com/api/v1/messages?keyword=CCC')
+	
+	var kwparam = getParameterByName('keyword');
+	
+	
+        fetch('https://bt-showcase-api.herokuapp.com/api/v1/messages?keyword='+kwparam)
             .then(response => response.json())			
             .then(responseJson => this.setState({ messages: responseJson.messages, messagecount:responseJson.count }));
         this.setState({
@@ -53,6 +57,7 @@ class Message extends React.Component {
                         <thead>
                             <tr>
                                 <th scope="col">Created</th>
+                                <th scope="col">Direction</th>
                                 <th scope="col">Channel</th>
                                 <th scope="col">Author</th>
                                 <th scope="col">Message</th>
@@ -63,14 +68,12 @@ class Message extends React.Component {
                             {this.state.messages.map((message, index) => (
                                 <tr eventKey={index}>
 									<td>{message.created_at}</td>
+                                    <td>{message.direction}</td>
                                     <td>{message.channel}</td>
                                     <td>{message.created_by}</td>
                                     <td>{message.content}</td>
                                 </tr>
                             ))}
-							
-						
-							
 							
                         </tbody>
                     </Table>
